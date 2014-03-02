@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>MCUCSAOP</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="blog blog_2012 blog_2012_03 blog_2012_03_07 blog_2012_03_07_mcucsaop blog_2012_03_07_mcucsaop_index">
+    <section class="main">
+      
+  <article>
+    <header>
+      <h1 class='detailed-item'>
+        <a class="item" href="/blog/2012/03/07/mcucsaop/">MCUCSAOP</a>
+        <time class='detail' datetime="2012-03-07 00:00:00 UTC">March 07, 2012</time>
+      </h1>
+    </header>
+    <p>Programming is full of acronyms:
+<a href="http://en.wikipedia.org/wiki/KISS_principle">KISS</a>.
+<a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD</a>.
+<a href="http://en.wikipedia.org/wiki/Object-oriented_programming">OOP</a> .
+<a href="http://en.wikipedia.org/wiki/You_ain&amp;#x27;t_gonna_need_it">YAGNI</a> .</p>
+
+<p></p>
+
+<p>In other cases there are short idioms for common concepts: <a href="http://c2.com/cgi/wiki?PrematureOptimization">Premature
+optimization is the Root of All
+Evil</a> and <a href="http://c2.com/cgi/wiki?GotoConsideredHarmful">GOTO considered
+harmful</a></p>
+
+<p>Well, here’s one little programming principle for which I have not found
+a popular acronym or short idiom:</p>
+
+<blockquote>
+<p>Make the common use case simple, and the others possible.</p>
+</blockquote>
+
+<p>a.k.a. <code>MCUSAOP</code></p>
+
+<p>It’s a programming principle I keep coming back every time I’m
+developing a library. I like it is very adequate for that task; the
+steps to follow are clear: first, find the most common case, or estimate
+which one is it. Then, design an interface for doing it in the simplest
+possible way. Then, think about the next most common case, and add an
+interface for it, trying to minimize its impact on the first case’s
+design. Keep doing that until all cases are covered.</p>
+
+<p>MCUSAOP FTW!</p>
+
+  </article>
+
+
+    </section>
+    <footer>
+      <ul class="horizontal-list">
+        <li>
+          <a href='https://github.com/kikito' class='icon-link' title= 'github: kikito'><img src="/img/github.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='https://twitter.com/otikik' class='icon-link' title= 'twitter: otikik'><img src="/img/twitter.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='http://stackoverflow.com/users/312586/kikito' class='icon-link' title= 'stackoverflow: kikito'><img src="/img/stackoverflow.svg" width="18" height="18"></a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

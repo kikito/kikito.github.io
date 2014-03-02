@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>Installing Go in Ubuntu using the PPA</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="blog blog_2012 blog_2012_05 blog_2012_05_09 blog_2012_05_09_installing-go-in-ubuntu blog_2012_05_09_installing-go-in-ubuntu_index">
+    <section class="main">
+      
+  <article>
+    <header>
+      <h1 class='detailed-item'>
+        <a class="item" href="/blog/2012/05/09/installing-go-in-ubuntu/">Installing Go in Ubuntu using the PPA</a>
+        <time class='detail' datetime="2012-05-09 00:00:00 UTC">May 09, 2012</time>
+      </h1>
+    </header>
+    <p>I&rsquo;ve recently started getting interested in <a href="http://golang.org">Go</a> (also known as <em>golang</em>), one of the new programming languages being developed by Google (another one is <a href="http://www.dartlang.org/">DART</a> , but I&rsquo;m not interested in that one. Yet).</p>
+
+<p></p>
+
+<p>One of the first hurdles I have encontered is that the <a href="http://golang.org/doc/install#freebsd_linux">installation instructions</a> seem incomplete, at least for Ubuntu.
+They tell you to go and download the source code and compile it on your machine. While I&rsquo;m not afraid of compiling stuff myself, I&rsquo;m not so fond of maintaining the compiled programs up-to-date manually. It reminds me of windows, brr.</p>
+
+<p>When I&rsquo;m trying new software I always try to find:</p>
+
+<p>a) The official apt-package with <code>apt-cache search</code>, which will manage the updates for me, or
+b) A <a href="http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/">ppa</a> , which is basically the same thing, except that
+   instead of an &ldquo;official&rdquo; unkown Ubuntu guy these updates are managed by an unkown guy.</p>
+
+<p>I tried to find a ppa for golang and, lo and behold! <a href="https://launchpad.net/~gophers/+archive/go">There is one</a>, and it seems reasonably official!</p>
+
+<p>Since the official instructions don&rsquo;t mention how to use this wonderful resource, allow me:</p>
+
+<p><code>bash Install golang-stagle from the gophers/go ppa
+sudo add-apt-repository ppa:gophers/go
+sudo apt-get update
+sudo apt-get install golang-stable
+</code></p>
+
+<p>Easy peasy! No compilations or anything needed. And when Go gets a new version, you will receive it as a software update. Cool!</p>
+
+<p>One minor thing though - Go expects you to have defined a <code>GOPATH</code> environment variable. This variable should point to a place where the Go libraries (&ldquo;packages&rdquo;, in
+Go lingo) are installed. For newbies (like me) it&rsquo;s better if it&rsquo;s a folder inside your home directory.</p>
+
+<p>So it&rsquo;s just a matter of creating it! (I name it <code>.go</code> so it is invisible by default, but you may want to make it more public). Notice that there is no <code>sudo</code> on this line.</p>
+<pre class="highlight shell">mkdir <span class="nv">$HOME</span>/.go
+</pre>
+<p>Finally, create the environment variable. Add this to your .bashrc, .zshrc or equivalent file, depending on whether you use bash, zsh or other shells.</p>
+<pre class="highlight shell"><span class="nb">export </span><span class="nv">GOPATH</span><span class="o">=</span><span class="nv">$HOME</span>/.go
+</pre>
+<p>The next console you open will be prepared to execute go!</p>
+
+<p>That&rsquo;s all for now. Go get some go!</p>
+
+  </article>
+
+
+    </section>
+    <footer>
+      <ul class="horizontal-list">
+        <li>
+          <a href='https://github.com/kikito' class='icon-link' title= 'github: kikito'><img src="/img/github.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='https://twitter.com/otikik' class='icon-link' title= 'twitter: otikik'><img src="/img/twitter.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='http://stackoverflow.com/users/312586/kikito' class='icon-link' title= 'stackoverflow: kikito'><img src="/img/stackoverflow.svg" width="18" height="18"></a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

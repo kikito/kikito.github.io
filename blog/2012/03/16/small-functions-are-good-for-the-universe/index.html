@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>Small Functions are Good for the Universe</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="blog blog_2012 blog_2012_03 blog_2012_03_16 blog_2012_03_16_small-functions-are-good-for-the-universe blog_2012_03_16_small-functions-are-good-for-the-universe_index">
+    <section class="main">
+      
+  <article>
+    <header>
+      <h1 class='detailed-item'>
+        <a class="item" href="/blog/2012/03/16/small-functions-are-good-for-the-universe/">Small Functions are Good for the Universe</a>
+        <time class='detail' datetime="2012-03-16 00:00:00 UTC">March 16, 2012</time>
+      </h1>
+    </header>
+    <p>This is a copy of <a href="https://love2d.org/forums/viewtopic.php?t=2826&amp;amp;p=33948#p33950">a post</a> I
+did some time ago in the LÖVE, which someone kindly reminded me of
+today.</p>
+
+<p></p>
+
+<h2 id="why-is-it-forbidden-for-a-function-to-do-two-different-things?">Why is it forbidden for a function to do two different things?</h2>
+
+<p>There are many reasons. The first one is that functions are supposed to
+be reusable. If you divide a big function into smaller functions, you
+can reuse those smaller functions in other places. The other reason is
+that by giving proper names to those functions, your code looks more
+like English and less than machine code. It&rsquo;s easier to understand for
+humans.</p>
+
+<p>A big function is like a landscape that one has to explore in order to
+&ldquo;understand&rdquo;. When you have smaller functions with significant names,
+those names act as &ldquo;signposts&rdquo; indicating where the code &ldquo;goes&rdquo; to
+humans.</p>
+
+<h2 id="what-would-you-use-instead?">What would you use instead?</h2>
+
+<p>If a function does two things, you divide it in two functions, give
+those functions proper, significant, pronounceable names, and call those
+functions from the original one.</p>
+
+<p>For example, if you have a big function like this one:</p>
+
+<p>(Note: I&rsquo;ll be using my class library, middleclass, tangentially, just
+to show how a good design and object orientation facilitate making
+stuff)</p>
+<pre class="highlight lua"><span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">t</span>
+  <span class="kd">local</span> <span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">d</span>
+  <span class="kd">local</span> <span class="n">cd</span> <span class="o">=</span> <span class="nb">math.huge</span>
+  <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">p</span> <span class="k">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">Game</span><span class="p">.</span><span class="n">players</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">cd</span> <span class="k">then</span>
+      <span class="n">t</span> <span class="o">=</span> <span class="n">p</span>
+      <span class="n">cd</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">if</span> <span class="n">t</span> <span class="k">then</span>
+    <span class="n">Bullet</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="nb">math.atan2</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n">y</span><span class="p">))</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+<p>lots of functions like this, your code tends to become unmanageable,
+especially if you return to it after not touching it for several months.
+It&rsquo;s a code that you understand while you are writing, and certainly the
+machine understands it, but it doesn&rsquo;t have &ldquo;signposts&rdquo; for future
+visitors. They have to &ldquo;explore&rdquo; it to know it.</p>
+
+<p>One option is to put a couple comments.</p>
+<pre class="highlight lua"><span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+  <span class="c1">-- get nearest player within sight</span>
+  <span class="kd">local</span> <span class="n">t</span>
+  <span class="kd">local</span> <span class="n">dx</span><span class="p">,</span><span class="n">dy</span><span class="p">,</span><span class="n">d</span>
+  <span class="kd">local</span> <span class="n">cd</span> <span class="o">=</span> <span class="nb">math.huge</span>
+  <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">p</span> <span class="k">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">Game</span><span class="p">.</span><span class="n">players</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span>
+    <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">cd</span> <span class="k">then</span>
+      <span class="n">t</span> <span class="o">=</span> <span class="n">p</span>
+      <span class="n">cd</span> <span class="o">=</span> <span class="n">d</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="c1">-- shoot a bullet to the player</span>
+  <span class="k">if</span> <span class="n">t</span> <span class="k">then</span>
+    <span class="n">Bullet</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="nb">math.atan2</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n">y</span><span class="p">))</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+<p>A much, much better solution is extracting those two &ldquo;different things&rdquo;
+into functions, ditch the comments, and use better names for the
+variable while you are at it.</p>
+
+<p>While you are doing this, you will suddenly realize that this function
+isn&rsquo;t really making two things. It&rsquo;s doing <strong>LOTS</strong> of things. Each one
+of those things belongs to a different function.</p>
+
+<p>Like this:</p>
+<pre class="highlight lua"><span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">target</span> <span class="o">=</span> <span class="n">self</span><span class="p">:</span><span class="n">getTarget</span><span class="p">()</span>
+  <span class="k">if</span> <span class="n">target</span> <span class="k">then</span> <span class="n">self</span><span class="p">:</span><span class="n">shootAt</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">getTarget</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">self</span><span class="p">:</span><span class="n">getNearest</span><span class="p">(</span><span class="n">Game</span><span class="p">.</span><span class="n">players</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">getNearest</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">distance</span><span class="p">,</span> <span class="n">nearest</span>
+  <span class="kd">local</span> <span class="n">shortestDistance</span> <span class="o">=</span> <span class="nb">math.huge</span>
+  <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">object</span> <span class="k">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">self</span><span class="p">:</span><span class="n">getSquaredDistance</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="n">shortestDistance</span> <span class="k">then</span>
+      <span class="n">nearest</span> <span class="o">=</span> <span class="n">object</span>
+      <span class="n">shortestDistance</span> <span class="o">=</span> <span class="n">distance</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="k">return</span> <span class="n">nearest</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">getSquaredDistance</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">object</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">object</span><span class="p">.</span><span class="n">y</span>
+  <span class="k">return</span> <span class="n">dx</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span><span class="o">*</span><span class="n">dy</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">shootAt</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+  <span class="n">Bullet</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">self</span><span class="p">:</span><span class="n">getAngle</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="k">function</span> <span class="nf">Turret</span><span class="p">:</span><span class="n">getAngle</span><span class="p">(</span><span class="n">object</span><span class="p">)</span>
+  <span class="k">return</span> <span class="nb">math.atan2</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">t</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>
+<span class="k">end</span>
+</pre>
+<p>I&rsquo;m sorry but I could not make <code>Turrent:getNearest</code> any smaller.</p>
+
+<p>Both programs do the same; for the machine, they are no different. But
+for programmers, they are so much easier to understand and maintain.
+Take a look at <code>Turret:update()</code>! Isn&rsquo;t it just beautiful?</p>
+
+<p>And now that you have smaller functions, you can reuse them in other
+places. I could move getDistance and getAngle to a Vector class, for
+example. That way I could use code for calculating distances and angles
+in all <code>Enemies</code> and <code>Players</code>, not just in my <code>Turret</code> class.</p>
+
+<p>Notice that the <code>Turret</code> is prepared to attack players, but it&rsquo;s very
+easy to subclass it now and create a turret that shoots other things,
+like asteroids. Actually, let me show you:</p>
+<pre class="highlight lua"><span class="n">AsteroidCleaningTurret</span> <span class="o">=</span> <span class="n">class</span><span class="p">(</span><span class="s1">'AsteroidCleaningTurret'</span><span class="p">,</span> <span class="n">Turret</span><span class="p">)</span>
+<span class="k">function</span> <span class="nf">AsteroidCleaningTurret</span><span class="p">:</span><span class="n">getTarget</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">self</span><span class="p">:</span><span class="n">getNearest</span><span class="p">(</span><span class="n">Game</span><span class="p">.</span><span class="n">asteroids</span><span class="p">)</span>
+<span class="k">end</span>
+</pre>
+<p>That&rsquo;s it. If I create an <code>AsteroidCleaningTurret</code>, it&rsquo;ll start shooting
+asteroids. In 4 lines. If the code of <code>Turret:update()</code> was the first
+version, I would have had to fiddle much more in order to do this. It&rsquo;s
+so easy to modify now! I could make a <code>DrunkenTurret</code> that calculates
+angles badly. Or one that shoots 4 bullets instead of just one. There&rsquo;re
+so many places you can tweak!</p>
+
+<p>&hellip;</p>
+
+<p>And I guess I&rsquo;ll just shut up now. I hope I made my point. Each function
+should do just one thing because that&rsquo;s better for the Universe.</p>
+
+  </article>
+
+
+    </section>
+    <footer>
+      <ul class="horizontal-list">
+        <li>
+          <a href='https://github.com/kikito' class='icon-link' title= 'github: kikito'><img src="/img/github.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='https://twitter.com/otikik' class='icon-link' title= 'twitter: otikik'><img src="/img/twitter.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='http://stackoverflow.com/users/312586/kikito' class='icon-link' title= 'stackoverflow: kikito'><img src="/img/stackoverflow.svg" width="18" height="18"></a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

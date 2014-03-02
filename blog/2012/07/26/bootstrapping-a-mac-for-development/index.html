@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>Bootstrapping a mac for development</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+    <link href="/css/style.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="blog blog_2012 blog_2012_07 blog_2012_07_26 blog_2012_07_26_bootstrapping-a-mac-for-development blog_2012_07_26_bootstrapping-a-mac-for-development_index">
+    <section class="main">
+      
+  <article>
+    <header>
+      <h1 class='detailed-item'>
+        <a class="item" href="/blog/2012/07/26/bootstrapping-a-mac-for-development/">Bootstrapping a mac for development</a>
+        <time class='detail' datetime="2012-07-26 00:00:00 UTC">July 26, 2012</time>
+      </h1>
+    </header>
+    <p>I recently acquired a new development machine - A Mac Book Air. I had
+been resisting it for quite some time now.</p>
+
+<p></p>
+
+<p>It is a very fine machine, but I’m not familiar with its operative
+system (I used to use Ubuntu on a custom-made PC).</p>
+
+<p>I’ve spent a couple days installing and configuring it for development
+usage (mostly Ruby on Rails). Here’s what I’ve done so far:</p>
+
+<h3 id="locate-the-terminal">Locate the terminal</h3>
+
+<p>I was able to find the terminal using the &ldquo;find tool&rdquo; (a little
+magnifier glass near the top right of the screen) and typing &ldquo;terminal&rdquo;.
+Once I clicked on it, it appeared on the Dock. I &ldquo;left-clicked&rdquo; (clicked
+with two fingers) on it to display a contextual menu. I choose
+<code>Options &gt; Keep in Dock</code> so I didn’t have to look for it again.</p>
+
+<h3 id="upgrade-the-operative-system">Upgrade the Operative System</h3>
+
+<p>A new version of OSX (codename &ldquo;Mountain Lion&rdquo;) had been released the
+day before my laptop arrived. Knowing that updates do sometimes provoke
+conflict with installed software, the first thing I did after booting up
+the machine was upgrading its operative system.</p>
+
+<p>OSX comes with a software called &ldquo;App Store&rdquo;. The upgrade was sold
+there, and was prominently advertised as well. If you have ever
+installed one application in a smartphone, the procedure was very
+similar - downloading the operative system took some time, since it
+weighted 4GB.</p>
+
+<p>After the download finished, the computer requested a reboot. I noticed
+a couple issues:</p>
+
+<ul>
+<li>  Mountain Lion comes with a new security &ldquo;feature&rdquo; that blocks
+installing software that doesn’t come from the App Store - If OSX
+complains that &ldquo;the developer is using an unkonwn signature&rdquo; or
+something similar, activate the corresponding option in
+<code>Apple Menu &gt; System Preferences &gt; Security &amp; Privacy &gt; Allow Applications downloaded from: Anywhere</code>.</li>
+<li>  I also noticed later on that the encoding is not set by default.
+This gave me issues later on when I started using ruby and Unicode
+stuff. In order to fix this, you must remember to add the following
+to your .profile/.bashrc/.zshrc:</li>
+</ul>
+<pre class="highlight shell"><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nb">export </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
+</pre>
+<h3 id="install-gcc-for-osx">Install gcc for OSX</h3>
+
+<p>Macs come with no compiler installed by default. From what I could
+understand, the development environment is called &ldquo;XCode&rdquo;. It’s a big
+download, another 4GB (later on I found some claims that you don’t need
+to download the whole XCode; the compiler can apparently be downloaded
+separately.</p>
+
+<p>However, I opted for an alternative approach: I used
+<a href="https://github.com/kennethreitz/osx-gcc-installer/">gcc-for-osx</a> .
+Installing it is very straightforward; download, double-click business.</p>
+
+<h3 id="install-ruby">Install ruby</h3>
+
+<p>Once the compiler is in place, you can install ruby. The recommended way
+to do that is via a ruby version manager. There are two main ones: <code>rvm</code>
+and <code>rbenv</code>. My personal preference is the former.</p>
+<pre class="highlight shell">curl -L https://get.rvm.io | bash -s stable --ruby
+</pre>
+<p>Once the process finishes downloading and compiling, it is usually a
+good idea to set the default ruby version. At the time of this writing,
+it is ruby 1.9.3. So I did this:</p>
+<pre class="highlight shell"><span class="nb">source</span> ~/.bashrc
+rvm use 1.9.3 —default
+</pre>
+<p>Once this is done, you should be able to execute <code>ruby --version</code> and
+obtain ‘1.9.3’.</p>
+
+<p>I later on installed ruby 1.9.2 since I need it for this blog (which is
+done in <a href="http://octopress.org">octopress</a> , and it does not work in ruby
+1.9.3).</p>
+<pre class="highlight plaintext">rvm install 1.9.2
+</pre>
+<h3 id="install-homebrew">Install homebrew</h3>
+
+<p>Homebrew is a tool for installing packages from the command line. I
+think of it as an &ldquo;very limited apt-tools package&rdquo;. But it’s the best
+there is on OSX, so you might as well install it. Here’s how you do it:</p>
+<pre class="highlight shell">ruby -e <span class="s2">"</span><span class="k">$(</span>curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install<span class="k">)</span><span class="s2">"</span>
+</pre>
+<p>Once homebrew is installed, you can use it to install other useful
+packages. For example, git and wget:</p>
+<pre class="highlight shell">brew install git
+brew install wget
+</pre>
+<h3 id="vim">Vim</h3>
+
+<p>Another thing I needed was a better console, and a decent source code
+editor. I am used to Vim in Ubuntu, so the natural choice in OSX is
+using <a href="http://code.google.com/p/macvim/">macvim</a> .</p>
+
+<p>Homebrew has a recipe for installing vim, but it doesn’t work if you
+have installed gcc instead of XCode, as I’ve done. So I had to download
+it from the website, and manually create a couple aliases .</p>
+
+<p>I’m very happy to report that
+<a href="https://github.com/kikito/adegan">Adegan</a>, my custom Vim configuration,
+seems to have work very well in macvim. To install it I had to use the
+same command I use in Ubuntu:</p>
+<pre class="highlight shell">curl -Lo- https://raw.github.com/kikito/adegan/master/scripts/bootstrap.sh | bash
+</pre>
+<h3 id="iterm2-and-zsh">iterm2 and zsh</h3>
+
+<p>The default terminal emulator is quite alright, but since I was
+experimenting, I decided to install it’s &ldquo;cool replacement&rdquo;,
+called <a href="http://www.iterm2.com">iterm2</a>. Again, this was a matter of
+downloading and double clicking, and then dragging to the Applications
+folder. Oh, and sticking it into the Dock.</p>
+
+<p>Then I installed zsh, a replacement for bash. I did so from brew:</p>
+<pre class="highlight shell">brew install zsh
+</pre>
+<p>Then I had to tell iterm2 to use zsh by default. That is done via this
+command:</p>
+<pre class="highlight shell">chsh --s /bin/zsh
+</pre>
+<p>Next time a console is opened, it will use zsh instead of bash.</p>
+
+<p>I then installed ohmyzsh:</p>
+<pre class="highlight shell">curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+</pre>
+<p>It seems that the version I installed by default sets the theme
+to <code>&quot;random&quot;</code>. I edited the <code>~/.zshrc</code> file and set it to <code>&quot;robbyrussell&quot;</code>,
+which I’m used to.</p>
+
+<h2 id="overall-experience">Overall experience</h2>
+
+<p>I find that, in terms of installation and configuration, OSX is
+intermediate. It is not as bad as Windows, where each piece of software
+is installed and updated independently, but it is also not as pleasant
+as Ubuntu, where almost everything is centralized via apt.</p>
+
+<p>I found that some applications required &ldquo;double clicking&rdquo; to be
+installed, others had to be &ldquo;extracted and copied to the Applications
+folder&rdquo;, while others had an &ldquo;special window&rdquo; where you could drag the
+application icon to applications. And then there is the App Store, and
+Homebrew.</p>
+
+<p>I am also adapting to the US keyboard layout, and doing some
+experiments. I might post about that soon.</p>
+
+  </article>
+
+
+    </section>
+    <footer>
+      <ul class="horizontal-list">
+        <li>
+          <a href='https://github.com/kikito' class='icon-link' title= 'github: kikito'><img src="/img/github.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='https://twitter.com/otikik' class='icon-link' title= 'twitter: otikik'><img src="/img/twitter.svg" width="18" height="18"></a>
+        </li>
+        <li>
+          <a href='http://stackoverflow.com/users/312586/kikito' class='icon-link' title= 'stackoverflow: kikito'><img src="/img/stackoverflow.svg" width="18" height="18"></a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
