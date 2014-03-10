@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Enrique García Cota</title>
+  <subtitle>Blog</subtitle>
+  <id>https://kikito.github.io/blog</id>
+  <link href="https://kikito.github.io/blog"/>
+  <link href="https://kikito.github.io/feed.xml" rel="self"/>
+  <updated>2014-03-02T00:00:00Z</updated>
+  <author>
+    <name>Enrique García Cota</name>
+  </author>
+  <entry>
+    <title>Rebooting the blog with middleman</title>
+    <link rel="alternate" href="https://kikito.github.io/blog/2014/03/02/rebooting-the-blog-with-middleman/"/>
+    <id>https://kikito.github.io/blog/2014/03/02/rebooting-the-blog-with-middleman/</id>
+    <published>2014-03-02T00:00:00Z</published>
+    <updated>2014-03-11T00:01:45+01:00</updated>
+    <author>
+      <name>Enrique García Cota</name>
+    </author>
+    <content type="html">&lt;p&gt;Some time ago, I &lt;a href="/https://kikito.github.io/blog/2012/03/06/starting-the-blog-with-octopress/"&gt;created this space&lt;/a&gt; using &lt;a href="http://octopress.org/"&gt;octopress&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The experience was not pleasant:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Octopress has a very &amp;ldquo;kitchen-sink&amp;rdquo; mindset. In a way, it provides too many tools by default.&lt;/li&gt;
+&lt;li&gt;The work folder is too cluttered with auxiliary files and folders.&lt;/li&gt;
+&lt;li&gt;Publishing a new post was an ordeal - partly because octopress&amp;#39; layout was so alien.&lt;/li&gt;
+&lt;li&gt;Much of the pain points I got from using Octopress could actually be attributed to &lt;a href="http://jekyllrb.com/"&gt;Jekyll&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Even if I didn&amp;rsquo;t publish much on this blog, I&amp;rsquo;ve used Jekyll quite often in the past - I used it almost for any static site that I needed to do. I&amp;rsquo;ve answered a significant amount of Jekyll-related questions in &lt;a href="http://stackoverflow.com"&gt;stackoverflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the past this made sense: Jekyll was the best static site generator that I knew. But that is not the case any more.&lt;/p&gt;
+
+&lt;p&gt;Middleman is a modern static site generator that solves much of the pain points that came with Jekyll.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;It does not use &lt;a href="http://liquidmarkup.org/"&gt;liquid markup&lt;/a&gt;, which is a very limited and clunky templating language. Instead, templates can be created using &lt;a href="http://en.wikipedia.org/wiki/ERuby"&gt;Eruby&lt;/a&gt;
+or &lt;a href="http://haml.info/"&gt;HAML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;It supports &lt;a href="http://sass-lang.com/"&gt;SASS and SCSS&lt;/a&gt; out-of-the-box.&lt;/li&gt;
+&lt;li&gt;It is not limited to blogs; it can be used to generate any kind of static website.&lt;/li&gt;
+&lt;li&gt;It has lots of plugins available; middleman plugins are regular ruby gems, which simplifies things enormously.&lt;/li&gt;
+&lt;li&gt;Configuration stays in a single place, &lt;code&gt;config.rb&lt;/code&gt; (you could have a &lt;code&gt;Rakefile&lt;/code&gt; too, but it&amp;rsquo;s optional) instead of the 4 required by Octopress.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As a result, the folder layout of &lt;a href="https://github.com/kikito/kikito.github.io/tree/source"&gt;my middleman-based repo&lt;/a&gt; is much cleaner than &lt;a href="https://github.com/kikito/old-blog/tree/source"&gt;the old octopress-based one&lt;/a&gt;.
+Creating posts is easier (they have less metadata). Publishing is easier too (very simple commands)&lt;/p&gt;
+
+&lt;p&gt;Since I know myself, I&amp;rsquo;ll probably end up adding a &lt;code&gt;Rakefile&lt;/code&gt; to automate things a bit more, so that instead of using 2 commands to publish stuff I can do it with just one.&lt;/p&gt;
+
+&lt;p&gt;But for me, Jekyll is dead. Long life middleman.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Bootstrapping a mac for development</title>
+    <link rel="alternate" href="https://kikito.github.io/blog/2012/07/26/bootstrapping-a-mac-for-development/"/>
+    <id>https://kikito.github.io/blog/2012/07/26/bootstrapping-a-mac-for-development/</id>
+    <published>2012-07-26T00:00:00Z</published>
+    <updated>2014-03-11T00:01:45+01:00</updated>
+    <author>
+      <name>Enrique García Cota</name>
+    </author>
+    <content type="html">&lt;p&gt;I recently acquired a new development machine - A Mac Book Air. I had
+been resisting it for quite some time now.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;It is a very fine machine, but I’m not familiar with its operative
+system (I used to use Ubuntu on a custom-made PC).&lt;/p&gt;
+
+&lt;p&gt;I’ve spent a couple days installing and configuring it for development
+usage (mostly Ruby on Rails). Here’s what I’ve done so far:&lt;/p&gt;
+
+&lt;h3 id="locate-the-terminal"&gt;Locate the terminal&lt;/h3&gt;
+
+&lt;p&gt;I was able to find the terminal using the &amp;ldquo;find tool&amp;rdquo; (a little
+magnifier glass near the top right of the screen) and typing &amp;ldquo;terminal&amp;rdquo;.
+Once I clicked on it, it appeared on the Dock. I &amp;ldquo;left-clicked&amp;rdquo; (clicked
+with two fingers) on it to display a contextual menu. I choose
+&lt;code&gt;Options &amp;gt; Keep in Dock&lt;/code&gt; so I didn’t have to look for it again.&lt;/p&gt;
+
+&lt;h3 id="upgrade-the-operative-system"&gt;Upgrade the Operative System&lt;/h3&gt;
+
+&lt;p&gt;A new version of OSX (codename &amp;ldquo;Mountain Lion&amp;rdquo;) had been released the
+day before my laptop arrived. Knowing that updates do sometimes provoke
+conflict with installed software, the first thing I did after booting up
+the machine was upgrading its operative system.&lt;/p&gt;
+
+&lt;p&gt;OSX comes with a software called &amp;ldquo;App Store&amp;rdquo;. The upgrade was sold
+there, and was prominently advertised as well. If you have ever
+installed one application in a smartphone, the procedure was very
+similar - downloading the operative system took some time, since it
+weighted 4GB.&lt;/p&gt;
+
+&lt;p&gt;After the download finished, the computer requested a reboot. I noticed
+a couple issues:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;  Mountain Lion comes with a new security &amp;ldquo;feature&amp;rdquo; that blocks
+installing software that doesn’t come from the App Store - If OSX
+complains that &amp;ldquo;the developer is using an unkonwn signature&amp;rdquo; or
+something similar, activate the corresponding option in
+&lt;code&gt;Apple Menu &amp;gt; System Preferences &amp;gt; Security &amp;amp; Privacy &amp;gt; Allow Applications downloaded from: Anywhere&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;  I also noticed later on that the encoding is not set by default.
+This gave me issues later on when I started using ruby and Unicode
+stuff. In order to fix this, you must remember to add the following
+to your .profile/.bashrc/.zshrc:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class="highlight shell"&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;LANG&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_US.UTF-8
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;LC_ALL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;en_US.UTF-8
+&lt;/pre&gt;
+&lt;h3 id="install-gcc-for-osx"&gt;Install gcc for OSX&lt;/h3&gt;
+
+&lt;p&gt;Macs come with no compiler installed by default. From what I could
+understand, the development environment is called &amp;ldquo;XCode&amp;rdquo;. It’s a big
+download, another 4GB (later on I found some claims that you don’t need
+to download the whole XCode; the compiler can apparently be downloaded
+separately.&lt;/p&gt;
+
+&lt;p&gt;However, I opted for an alternative approach: I used
+&lt;a href="https://github.com/kennethreitz/osx-gcc-installer/"&gt;gcc-for-osx&lt;/a&gt; .
+Installing it is very straightforward; download, double-click business.&lt;/p&gt;
+
+&lt;h3 id="install-ruby"&gt;Install ruby&lt;/h3&gt;
+
+&lt;p&gt;Once the compiler is in place, you can install ruby. The recommended way
+to do that is via a ruby version manager. There are two main ones: &lt;code&gt;rvm&lt;/code&gt;
+and &lt;code&gt;rbenv&lt;/code&gt;. My personal preference is the former.&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;curl -L https://get.rvm.io | bash -s stable --ruby
+&lt;/pre&gt;
+&lt;p&gt;Once the process finishes downloading and compiling, it is usually a
+good idea to set the default ruby version. At the time of this writing,
+it is ruby 1.9.3. So I did this:&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
+rvm use 1.9.3 —default
+&lt;/pre&gt;
+&lt;p&gt;Once this is done, you should be able to execute &lt;code&gt;ruby --version&lt;/code&gt; and
+obtain ‘1.9.3’.&lt;/p&gt;
+
+&lt;p&gt;I later on installed ruby 1.9.2 since I need it for this blog (which is
+done in &lt;a href="http://octopress.org"&gt;octopress&lt;/a&gt; , and it does not work in ruby
+1.9.3).&lt;/p&gt;
+&lt;pre class="highlight plaintext"&gt;rvm install 1.9.2
+&lt;/pre&gt;
+&lt;h3 id="install-homebrew"&gt;Install homebrew&lt;/h3&gt;
+
+&lt;p&gt;Homebrew is a tool for installing packages from the command line. I
+think of it as an &amp;ldquo;very limited apt-tools package&amp;rdquo;. But it’s the best
+there is on OSX, so you might as well install it. Here’s how you do it:&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Once homebrew is installed, you can use it to install other useful
+packages. For example, git and wget:&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;brew install git
+brew install wget
+&lt;/pre&gt;
+&lt;h3 id="vim"&gt;Vim&lt;/h3&gt;
+
+&lt;p&gt;Another thing I needed was a better console, and a decent source code
+editor. I am used to Vim in Ubuntu, so the natural choice in OSX is
+using &lt;a href="http://code.google.com/p/macvim/"&gt;macvim&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;Homebrew has a recipe for installing vim, but it doesn’t work if you
+have installed gcc instead of XCode, as I’ve done. So I had to download
+it from the website, and manually create a couple aliases .&lt;/p&gt;
+
+&lt;p&gt;I’m very happy to report that
+&lt;a href="https://github.com/kikito/adegan"&gt;Adegan&lt;/a&gt;, my custom Vim configuration,
+seems to have work very well in macvim. To install it I had to use the
+same command I use in Ubuntu:&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;curl -Lo- https://raw.github.com/kikito/adegan/master/scripts/bootstrap.sh | bash
+&lt;/pre&gt;
+&lt;h3 id="iterm2-and-zsh"&gt;iterm2 and zsh&lt;/h3&gt;
+
+&lt;p&gt;The default terminal emulator is quite alright, but since I was
+experimenting, I decided to install it’s &amp;ldquo;cool replacement&amp;rdquo;,
+called &lt;a href="http://www.iterm2.com"&gt;iterm2&lt;/a&gt;. Again, this was a matter of
+downloading and double clicking, and then dragging to the Applications
+folder. Oh, and sticking it into the Dock.&lt;/p&gt;
+
+&lt;p&gt;Then I installed zsh, a replacement for bash. I did so from brew:&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;brew install zsh
+&lt;/pre&gt;
+&lt;p&gt;Then I had to tell iterm2 to use zsh by default. That is done via this
+command:&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;chsh --s /bin/zsh
+&lt;/pre&gt;
+&lt;p&gt;Next time a console is opened, it will use zsh instead of bash.&lt;/p&gt;
+
+&lt;p&gt;I then installed ohmyzsh:&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+&lt;/pre&gt;
+&lt;p&gt;It seems that the version I installed by default sets the theme
+to &lt;code&gt;&amp;quot;random&amp;quot;&lt;/code&gt;. I edited the &lt;code&gt;~/.zshrc&lt;/code&gt; file and set it to &lt;code&gt;&amp;quot;robbyrussell&amp;quot;&lt;/code&gt;,
+which I’m used to.&lt;/p&gt;
+
+&lt;h2 id="overall-experience"&gt;Overall experience&lt;/h2&gt;
+
+&lt;p&gt;I find that, in terms of installation and configuration, OSX is
+intermediate. It is not as bad as Windows, where each piece of software
+is installed and updated independently, but it is also not as pleasant
+as Ubuntu, where almost everything is centralized via apt.&lt;/p&gt;
+
+&lt;p&gt;I found that some applications required &amp;ldquo;double clicking&amp;rdquo; to be
+installed, others had to be &amp;ldquo;extracted and copied to the Applications
+folder&amp;rdquo;, while others had an &amp;ldquo;special window&amp;rdquo; where you could drag the
+application icon to applications. And then there is the App Store, and
+Homebrew.&lt;/p&gt;
+
+&lt;p&gt;I am also adapting to the US keyboard layout, and doing some
+experiments. I might post about that soon.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Coding with an Accent</title>
+    <link rel="alternate" href="https://kikito.github.io/blog/2012/07/19/coding-with-an-accent/"/>
+    <id>https://kikito.github.io/blog/2012/07/19/coding-with-an-accent/</id>
+    <published>2012-07-19T00:00:00Z</published>
+    <updated>2014-03-11T00:01:45+01:00</updated>
+    <author>
+      <name>Enrique García Cota</name>
+    </author>
+    <content type="html">&lt;p&gt;Here is one little tip you might not know: programming languages, like
+spoken languages, have accents.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Well, maybe I’m stretching the metaphor a bit. But only a bit. So bear
+with me while I dissert a bit about spoken languages. I promise it won’t
+take too long.&lt;/p&gt;
+
+&lt;h2 id="a-brief-detour-on-spoken-languages"&gt;A brief detour on Spoken Languages&lt;/h2&gt;
+
+&lt;p&gt;I was born in the southern part of Spain. That region, known as
+Andalusia, has it’s own accent. It has a distinct intonation has certain
+slang, but its most prominent characteristic is the omission of
+phonemes. I guess, to other Spanish speakers, Andalusian Spanish sounds
+like a mixture of Scottish and Texas English. It is also kindof
+considered “funny by default”. Some comediants use that accent to tell
+jokes, even if they don’t usually speak like that.&lt;/p&gt;
+
+&lt;p&gt;In addition to Andalusian, after spending 9 years in Madrid, I have a
+separate “compartment” in my head for Madrid’s accent, which we could
+call “neutral Spanish”. I change between Andalusian and neutral
+depending on who I am speaking to.&lt;/p&gt;
+
+&lt;p&gt;I also speak English and French. I only have one accent for each of
+those, but I know them well enough to notice how different accents
+sound.&lt;/p&gt;
+
+&lt;p&gt;This linguistic background has allowed me to notice certain …
+differences here and there. Besides the obvious ones, like phonetical or
+grammatical rules, I mean; more of the semantic kind.&lt;/p&gt;
+
+&lt;p&gt;For example, French people (at least people from Paris, which are the
+ones I’m more familiar with) don’t even say “we”. I mean, they have a
+word for it - “nous”. But they never use it when colloquially speaking.
+Instead, they use the impersonal “on”, which roughtly translates to “it”
+(as in “It is said that…”). So, when they mean “let’s go shopping” they
+say something like “it should go shopping”. Crazy, right? Well, they do
+it all the time.&lt;/p&gt;
+
+&lt;p&gt;What can I say about English? It is so widely used that there are so
+many things one can say. By hearing how they pronnouce the letter “r”,
+one can say whether someone is from one side or the other of the
+Atlantic. I wonder if some day “I wanna go” will be considered valid
+English.&lt;/p&gt;
+
+&lt;p&gt;In Spain, no one says good-bye any more. There is a word for it, of
+course - “Adiós”. But no one says it. Everyone says “see you soon”
+instead. Even if it’s longer. Society has decided that “Adiós” is too …
+hard, I suppose.&lt;/p&gt;
+
+&lt;p&gt;They say eskimos have 7 different words for “snow”. I don’t know if it’s
+true. I know that my girlfriend, who grew in the northern part of Spain,
+has 1 more word than me for saying “it rains”, in Spanish.&lt;/p&gt;
+
+&lt;h2 id="the-engineer-view"&gt;The Engineer View&lt;/h2&gt;
+
+&lt;p&gt;I like to think that all men of science share a special sense of beauty.
+Instead of (or in addition to) being able to find beauty in a work of
+art, we find it in efficient, neatly organized systems and tools.&lt;/p&gt;
+
+&lt;p&gt;When I look at spoken languages from the point of view of an engineer, I
+find them a bit … lacking. Spoken languages are not a very efficient
+tool for communicating concepts. They require more effort than it’s
+really necessary.&lt;/p&gt;
+
+&lt;p&gt;Spanish verbs are crazily ornated. English does it better, but still
+requires too much memory - why say “I am, you are, he is”, when you
+could say “I be, you be, he be”?. Speaking of English, its
+pronnounciation rules have too many exceptions and things that one has
+to remember - tomato vs potato. That one is much simpler in Spanish. My
+biggest grip with French is that even if lots of words are pronnounced
+the same way, they are written differently. The fact that the word
+“bureaucracy” has its roots on that particular language makes a lot of
+sense.&lt;/p&gt;
+
+&lt;h2 id="programming-languages-as-tools"&gt;Programming languages as tools&lt;/h2&gt;
+
+&lt;p&gt;When I look at programming languages, I conserve that sense of beauty.
+That is why I consider myself very fortunate to be able to work with a
+programming language that I find aesthetically pleasant as an engineer.
+I enjoy using the language, and seeing where it takes me.&lt;/p&gt;
+
+&lt;p&gt;Lua is another language that I enjoy. It is smaller than ruby, and
+certainly less powerful, but the compromises it makes reflect what I
+think an embedded language should do.&lt;/p&gt;
+
+&lt;p&gt;Javascript is so ubiquous it hurts!&lt;/p&gt;
+
+&lt;p&gt;And of course there are plenty of others. Lisp. Haskell. Erlang. Html.
+Even CSS.&lt;/p&gt;
+
+&lt;p&gt;And yet, my sense of beauty is never satisfied. Ruby, which is my
+favourite, is slow in some cases. The way it handles blocks troubles me.
+Lua has implicit global variables, and its string manipulation library
+is too barebones. Javascript … well, I used to enjoy it. After reading
+&lt;a href="http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742"&gt;Javascript: the good
+parts&lt;/a&gt;
+, however, I can’t help but keep noticing the bad parts. Lisp doesn’t
+feel like a language, it feels like raw
+&lt;a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree"&gt;AST&lt;/a&gt; manipulation.
+PHP… don’t get me started on PHP.&lt;/p&gt;
+
+&lt;p&gt;The point is, I have grudges with all of them. It would seem that I am
+doomed to never be satisfied.&lt;/p&gt;
+
+&lt;h2 id="the-accent-in-programming-languages"&gt;The accent in programming languages&lt;/h2&gt;
+
+&lt;p&gt;But I wanted to talk about the accent in programming languages. As I was
+saying before, I think that there are “semantic differences” between
+spoken languages. And I think those differences are even more
+pronnounced in programming languages.&lt;/p&gt;
+
+&lt;p&gt;The first programming language I ever learnt was BASIC, in the mighty
+&lt;a href="http://en.wikipedia.org/wiki/ZX_Spectrum#ZX_Spectrum.2B"&gt;Spectrum 48k+&lt;/a&gt;
+. Much later, in the University, I learnt C. And I programmed C exactly
+like I programmed BASIC before. Then I learnt Java … and yet, I managed
+to program it as if it was BASIC. Only though time, and gradual effort,
+I managed to “get” this new “way of thinking” called “Object
+orientation”.&lt;/p&gt;
+
+&lt;p&gt;… and then I started to do Object Orientation in plain C. Which was a
+mistake.&lt;/p&gt;
+
+&lt;p&gt;I’ve needed a lot of time to realize that every programming language has
+its strenghts; and they are often not easily “exportable”. This is what
+I call the “nature” of a language. This “nature” is not necessarily
+related with the language’s grammar rules. For example, Javascript has
+acquired an “asyncronous nature” recently, thanks to
+&lt;a href="http://nodejs.org"&gt;node.js&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;To get the nature of a programming language, you probably should not use
+a grammar book. You will need a book which concentrates on “idiomatic
+rules” instead. Or, you could spend an inordinate amount of time reading
+other people’s code.&lt;/p&gt;
+
+&lt;p&gt;So, when you learn your next programming language, don’t stop after you
+learn the basic grammar rules. Try to concentrate on whether people say
+“Adiós” with it. Or how many ways it has for saying “snow”.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Installing Go in Ubuntu using the PPA</title>
+    <link rel="alternate" href="https://kikito.github.io/blog/2012/05/09/installing-go-in-ubuntu/"/>
+    <id>https://kikito.github.io/blog/2012/05/09/installing-go-in-ubuntu/</id>
+    <published>2012-05-09T00:00:00Z</published>
+    <updated>2014-03-11T00:01:45+01:00</updated>
+    <author>
+      <name>Enrique García Cota</name>
+    </author>
+    <content type="html">&lt;p&gt;I&amp;rsquo;ve recently started getting interested in &lt;a href="http://golang.org"&gt;Go&lt;/a&gt; (also known as &lt;em&gt;golang&lt;/em&gt;), one of the new programming languages being developed by Google (another one is &lt;a href="http://www.dartlang.org/"&gt;DART&lt;/a&gt; , but I&amp;rsquo;m not interested in that one. Yet).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the first hurdles I have encontered is that the &lt;a href="http://golang.org/doc/install#freebsd_linux"&gt;installation instructions&lt;/a&gt; seem incomplete, at least for Ubuntu.
+They tell you to go and download the source code and compile it on your machine. While I&amp;rsquo;m not afraid of compiling stuff myself, I&amp;rsquo;m not so fond of maintaining the compiled programs up-to-date manually. It reminds me of windows, brr.&lt;/p&gt;
+
+&lt;p&gt;When I&amp;rsquo;m trying new software I always try to find:&lt;/p&gt;
+
+&lt;p&gt;a) The official apt-package with &lt;code&gt;apt-cache search&lt;/code&gt;, which will manage the updates for me, or
+b) A &lt;a href="http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/"&gt;ppa&lt;/a&gt; , which is basically the same thing, except that
+   instead of an &amp;ldquo;official&amp;rdquo; unkown Ubuntu guy these updates are managed by an unkown guy.&lt;/p&gt;
+
+&lt;p&gt;I tried to find a ppa for golang and, lo and behold! &lt;a href="https://launchpad.net/~gophers/+archive/go"&gt;There is one&lt;/a&gt;, and it seems reasonably official!&lt;/p&gt;
+
+&lt;p&gt;Since the official instructions don&amp;rsquo;t mention how to use this wonderful resource, allow me:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash Install golang-stagle from the gophers/go ppa
+sudo add-apt-repository ppa:gophers/go
+sudo apt-get update
+sudo apt-get install golang-stable
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Easy peasy! No compilations or anything needed. And when Go gets a new version, you will receive it as a software update. Cool!&lt;/p&gt;
+
+&lt;p&gt;One minor thing though - Go expects you to have defined a &lt;code&gt;GOPATH&lt;/code&gt; environment variable. This variable should point to a place where the Go libraries (&amp;ldquo;packages&amp;rdquo;, in
+Go lingo) are installed. For newbies (like me) it&amp;rsquo;s better if it&amp;rsquo;s a folder inside your home directory.&lt;/p&gt;
+
+&lt;p&gt;So it&amp;rsquo;s just a matter of creating it! (I name it &lt;code&gt;.go&lt;/code&gt; so it is invisible by default, but you may want to make it more public). Notice that there is no &lt;code&gt;sudo&lt;/code&gt; on this line.&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;mkdir &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.go
+&lt;/pre&gt;
+&lt;p&gt;Finally, create the environment variable. Add this to your .bashrc, .zshrc or equivalent file, depending on whether you use bash, zsh or other shells.&lt;/p&gt;
+&lt;pre class="highlight shell"&gt;&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GOPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;/.go
+&lt;/pre&gt;
+&lt;p&gt;The next console you open will be prepared to execute go!&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s all for now. Go get some go!&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Cool Stuff vs Yak Shaving</title>
+    <link rel="alternate" href="https://kikito.github.io/blog/2012/04/03/cool-stuff-vs-yak-shaving/"/>
+    <id>https://kikito.github.io/blog/2012/04/03/cool-stuff-vs-yak-shaving/</id>
+    <published>2012-04-03T00:00:00Z</published>
+    <updated>2014-03-11T00:01:45+01:00</updated>
+    <author>
+      <name>Enrique García Cota</name>
+    </author>
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;This is a copy of &lt;a href="https://love2d.org/forums/viewtopic.php?f=4&amp;amp;amp;t=8608&amp;amp;amp;p=53181#p53181"&gt;a
+post&lt;/a&gt;
+I did recently in the LÖVE forums.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is not the first time I hear about the &amp;ldquo;I don&amp;rsquo;t like using
+libraries&amp;rdquo; thing, and I have been thinking about it for a while. I guess
+this is a good place to expose my views on the matter.&lt;/p&gt;
+
+&lt;p&gt;You see, for me there are two kinds of tasks in programming: there is
+&lt;strong&gt;Cool Stuff&lt;/strong&gt; and there is &lt;strong&gt;Yak Shaving&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In a game, &lt;strong&gt;Cool Stuff&lt;/strong&gt; is what your game is about - it could be a
+great gameplay. It could be a really neat set of graphics. It could be a
+really good story. Or very likable characters. Hell, it could be the
+sound, if you are doing a musical game.&lt;/p&gt;
+
+&lt;p&gt;But there is usually lots of extra stuff that you also need for your
+game to be considered &amp;ldquo;complete&amp;rdquo;. You need to handle the menu. The
+animations. You need to store and retrieve information from files, etc.&lt;/p&gt;
+
+&lt;p&gt;All that stuff that &amp;ldquo;doesn&amp;rsquo;t really make your game any cooler, but it&amp;rsquo;s
+still needed&amp;rdquo;, is &lt;strong&gt;Yak Shaving&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The problem is that lots of people (me included) end up not doing the
+Cool Stuff because they spend all their energy Yak Shaving. That is just
+sad.&lt;/p&gt;
+
+&lt;p&gt;In my opinion, anything that saves you from Shaving a Yak so you can
+spend time doing &lt;strong&gt;Cool Stuff&lt;/strong&gt;, is good.&lt;/p&gt;
+
+&lt;p&gt;An example: you are using LÖVE instead of C++ and OpenGL, or direct
+machine code. And yet it doesn&amp;rsquo;t &amp;ldquo;feel like cheating&amp;rdquo;. That&amp;rsquo;s because
+all LÖVE does is Yak Shaving. But you still need to do your part - you
+need to do the Cool Stuff!&lt;/p&gt;
+
+&lt;p&gt;In the &amp;ldquo;cross the country metaphor&amp;rdquo;, using tween should not feel like
+friend giving you a lift. It should feel like a friend giving you a pair
+of good walking boots. You put them on and then, off you go! You are
+still doing the important stuff - which is walking that long, long path.
+It&amp;rsquo;s only that now you don&amp;rsquo;t have to worry about all the little pointy
+pebbles in the way.&lt;/p&gt;
+
+&lt;p&gt;I also want to address the &lt;em&gt;&amp;ldquo;but if I use libraries, I will not
+learn!&amp;rdquo;&lt;/em&gt; concern.&lt;/p&gt;
+
+&lt;p&gt;First of all, I think learning is great. I&amp;rsquo;m all for learning. And I think that it is a proven fact that learning from others is more effective than having to learn it by yourself. A good teacher will explain the Theory of relativity in one hour. A class full of students, however bright they are, will forcefully take much longer than that to come up with the theory all by themselves.&lt;/p&gt;
+
+&lt;p&gt;If you want to learn, that is great) Just don&amp;rsquo;t try to go &amp;ldquo;macho&amp;rdquo; and do
+it on your own. Open up an existing lib, and see how other people have
+already done it! Don&amp;rsquo;t try to invent relativity, read a book about it!
+Be efficient!&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve learnt so much by reading other people&amp;rsquo;s source code. I make a o
+point to make my libs as understandable as possible, just because of
+this.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s pretty much it. Sorry for the long rant. I will shut up now.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Small Functions are Good for the Universe</title>
+    <link rel="alternate" href="https://kikito.github.io/blog/2012/03/16/small-functions-are-good-for-the-universe/"/>
+    <id>https://kikito.github.io/blog/2012/03/16/small-functions-are-good-for-the-universe/</id>
+    <published>2012-03-16T00:00:00Z</published>
+    <updated>2014-03-11T00:01:45+01:00</updated>
+    <author>
+      <name>Enrique García Cota</name>
+    </author>
+    <content type="html">&lt;p&gt;This is a copy of &lt;a href="https://love2d.org/forums/viewtopic.php?t=2826&amp;amp;amp;p=33948#p33950"&gt;a post&lt;/a&gt; I
+did some time ago in the LÖVE, which someone kindly reminded me of
+today.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id="why-is-it-forbidden-for-a-function-to-do-two-different-things?"&gt;Why is it forbidden for a function to do two different things?&lt;/h2&gt;
+
+&lt;p&gt;There are many reasons. The first one is that functions are supposed to
+be reusable. If you divide a big function into smaller functions, you
+can reuse those smaller functions in other places. The other reason is
+that by giving proper names to those functions, your code looks more
+like English and less than machine code. It&amp;rsquo;s easier to understand for
+humans.&lt;/p&gt;
+
+&lt;p&gt;A big function is like a landscape that one has to explore in order to
+&amp;ldquo;understand&amp;rdquo;. When you have smaller functions with significant names,
+those names act as &amp;ldquo;signposts&amp;rdquo; indicating where the code &amp;ldquo;goes&amp;rdquo; to
+humans.&lt;/p&gt;
+
+&lt;h2 id="what-would-you-use-instead?"&gt;What would you use instead?&lt;/h2&gt;
+
+&lt;p&gt;If a function does two things, you divide it in two functions, give
+those functions proper, significant, pronounceable names, and call those
+functions from the original one.&lt;/p&gt;
+
+&lt;p&gt;For example, if you have a big function like this one:&lt;/p&gt;
+
+&lt;p&gt;(Note: I&amp;rsquo;ll be using my class library, middleclass, tangentially, just
+to show how a good design and object orientation facilitate making
+stuff)&lt;/p&gt;
+&lt;pre class="highlight lua"&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;dx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;dy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;math.huge&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;ipairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;players&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;
+    &lt;span class="n"&gt;dy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
+    &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dx&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dx&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;dy&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dy&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+      &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;
+      &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    &lt;span class="n"&gt;Bullet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;math.atan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;lots of functions like this, your code tends to become unmanageable,
+especially if you return to it after not touching it for several months.
+It&amp;rsquo;s a code that you understand while you are writing, and certainly the
+machine understands it, but it doesn&amp;rsquo;t have &amp;ldquo;signposts&amp;rdquo; for future
+visitors. They have to &amp;ldquo;explore&amp;rdquo; it to know it.&lt;/p&gt;
+
+&lt;p&gt;One option is to put a couple comments.&lt;/p&gt;
+&lt;pre class="highlight lua"&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="c1"&gt;-- get nearest player within sight&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;dx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;dy&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;math.huge&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;ipairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;players&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;dx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;
+    &lt;span class="n"&gt;dy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
+    &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dx&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dx&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;dy&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dy&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+      &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;
+      &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="c1"&gt;-- shoot a bullet to the player&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    &lt;span class="n"&gt;Bullet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;math.atan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;A much, much better solution is extracting those two &amp;ldquo;different things&amp;rdquo;
+into functions, ditch the comments, and use better names for the
+variable while you are at it.&lt;/p&gt;
+
+&lt;p&gt;While you are doing this, you will suddenly realize that this function
+isn&amp;rsquo;t really making two things. It&amp;rsquo;s doing &lt;strong&gt;LOTS&lt;/strong&gt; of things. Each one
+of those things belongs to a different function.&lt;/p&gt;
+
+&lt;p&gt;Like this:&lt;/p&gt;
+&lt;pre class="highlight lua"&gt;&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getTarget&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;target&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;shootAt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getTarget&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getNearest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;players&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getNearest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nearest&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;shortestDistance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;math.huge&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;ipairs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;distance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getSquaredDistance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;shortestDistance&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+      &lt;span class="n"&gt;nearest&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;
+      &lt;span class="n"&gt;shortestDistance&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;distance&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;nearest&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getSquaredDistance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="kd"&gt;local&lt;/span&gt; &lt;span class="n"&gt;dx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dy&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;dx&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dx&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;dy&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dy&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;shootAt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="n"&gt;Bullet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getAngle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getAngle&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;math.atan2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;I&amp;rsquo;m sorry but I could not make &lt;code&gt;Turrent:getNearest&lt;/code&gt; any smaller.&lt;/p&gt;
+
+&lt;p&gt;Both programs do the same; for the machine, they are no different. But
+for programmers, they are so much easier to understand and maintain.
+Take a look at &lt;code&gt;Turret:update()&lt;/code&gt;! Isn&amp;rsquo;t it just beautiful?&lt;/p&gt;
+
+&lt;p&gt;And now that you have smaller functions, you can reuse them in other
+places. I could move getDistance and getAngle to a Vector class, for
+example. That way I could use code for calculating distances and angles
+in all &lt;code&gt;Enemies&lt;/code&gt; and &lt;code&gt;Players&lt;/code&gt;, not just in my &lt;code&gt;Turret&lt;/code&gt; class.&lt;/p&gt;
+
+&lt;p&gt;Notice that the &lt;code&gt;Turret&lt;/code&gt; is prepared to attack players, but it&amp;rsquo;s very
+easy to subclass it now and create a turret that shoots other things,
+like asteroids. Actually, let me show you:&lt;/p&gt;
+&lt;pre class="highlight lua"&gt;&lt;span class="n"&gt;AsteroidCleaningTurret&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;class&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'AsteroidCleaningTurret'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Turret&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;AsteroidCleaningTurret&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getTarget&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;getNearest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Game&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;asteroids&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;That&amp;rsquo;s it. If I create an &lt;code&gt;AsteroidCleaningTurret&lt;/code&gt;, it&amp;rsquo;ll start shooting
+asteroids. In 4 lines. If the code of &lt;code&gt;Turret:update()&lt;/code&gt; was the first
+version, I would have had to fiddle much more in order to do this. It&amp;rsquo;s
+so easy to modify now! I could make a &lt;code&gt;DrunkenTurret&lt;/code&gt; that calculates
+angles badly. Or one that shoots 4 bullets instead of just one. There&amp;rsquo;re
+so many places you can tweak!&lt;/p&gt;
+
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;And I guess I&amp;rsquo;ll just shut up now. I hope I made my point. Each function
+should do just one thing because that&amp;rsquo;s better for the Universe.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
