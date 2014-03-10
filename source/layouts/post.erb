@@ -1,13 +1,2 @@
 <% wrap_layout :layout do %>
-
-  <article>
-    <header>
-      <h1 class='detailed-item'>
-        <%= link_to current_article.title, current_article, class: 'item' %>
-        <time class='detail' datetime="<%= current_article.date.utc %>"><%= current_article.date.strftime('%B %d, %Y') %></time>
-      </h1>
-    </header>
-    <%= yield %>
-  </article>
-
 <% end %>

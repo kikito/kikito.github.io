@@ -3,27 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
-    <title><%= current_article.present? ? current_article.title : "kikito.github.io" %></title>
-    <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
+    <meta http-equiv="refresh" content="6;url=http://kiki.to<%= current_page.url %>">
+    <title>Redirecting to kiki.to</title>
+    <script type="text/javascript">
+      settimeout(1050, function() {
+        window.location.href = "http://kiki.to<%= current_page.url %>";
+      });
+    </script>
     <%= stylesheet_link_tag "style" %>
   </head>
 
   <body class="<%= page_classes %>">
     <section class="main">
-      <%= yield %>
+      <h1>Redirecting to kiki.to ...</h1>
+      <p>This page has moved to:<p>
+      <ul><li><a href="http://kiki.to<%= current_page.url %>">http://kiki.to<%= current_page.url %></a></li></ul>
+      <p>If you are not automatically redirected, please click the link above.</p>
     </section>
-    <footer>
-      <ul class="horizontal-list">
-        <li>
-          <a href='https://github.com/kikito' class='icon-link' title= 'github: kikito'><img src="/img/github.svg" width="18" height="18"></a>
-        </li>
-        <li>
-          <a href='https://twitter.com/otikik' class='icon-link' title= 'twitter: otikik'><img src="/img/twitter.svg" width="18" height="18"></a>
-        </li>
-        <li>
-          <a href='http://stackoverflow.com/users/312586/kikito' class='icon-link' title= 'stackoverflow: kikito'><img src="/img/stackoverflow.svg" width="18" height="18"></a>
-        </li>
-      </ul>
-    </footer>
   </body>
 </html>
